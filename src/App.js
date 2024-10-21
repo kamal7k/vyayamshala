@@ -10,6 +10,7 @@ import Dashboard from './features/admin/Dashboard';
 import Users from './features/admin/admin-ui/Users';
 import Trainers from './features/admin/admin-ui/Trainers';
 import AddTrainer from './features/admin/admin-ui/AddTrainer';
+import TrainerEdit from './features/admin/editform/TrainerEdit';
 
 
 const App = () => {
@@ -31,7 +32,6 @@ const App = () => {
           path: 'admin',
           element: <AdminRoute />,
 
-
         },
 
         {
@@ -52,6 +52,11 @@ const App = () => {
         {
           path: 'add-trainer',
           element: <AddTrainer />
+        },
+
+        {
+          path: 'trainer-edit/:id',
+          element: <TrainerEdit />
         }
 
 

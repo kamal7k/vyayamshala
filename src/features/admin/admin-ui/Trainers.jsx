@@ -85,7 +85,7 @@ const Trainers = () => {
                     </Typography>
                   </td>
                   <td className={`w-24 ${classes}`}> {/* Set fixed width for Edit column */}
-                    <Link >
+                    <Link to={`/trainer-edit/${_id}`} >
                       <Button className="pl-8 pr-8" color="green" size="md">Edit</Button>
                     </Link>
                   </td>

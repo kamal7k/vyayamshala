@@ -5,7 +5,7 @@ const AdminRoute = () => {
   return (
     <>
       <AdminLogin />
-      
+
     </>
   )
 }

@@ -7,6 +7,7 @@ import Footer from '../../ui/Footer';
 import Header from '../../ui/Header';
 import Facilities from '../../ui/Facilities';
 import Add from '../auth/Add';
+import Trainers from './Trainers';
 const Main = () => {
   const nav = useNavigate();
   return (
@@ -122,25 +123,7 @@ const Main = () => {
       <Facilities />
 
       {/* Trainers */}
-      <section className="p-8">
-        <h2 className="text-3xl font-bold mb-4">Meet our Trainers</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {[
-            { name: 'Aniz Shrestha', image: './image/trainers/t1.jpg' },
-            { name: 'Chris Thapa', image: './image/trainers/t2.jpg' },
-            { name: 'Sunil Chetri', image: './image/trainers/t3.jpg' },
-            { name: 'Priya K.C', image: './image/trainers/t4.jpg' },
-            { name: 'Rita Puri', image: './image/trainers/t5.jpg' },
-            { name: 'Santosh Adhikari', image: './image/trainers/t6.jpg' }
-          ].map((trainer, index) => (
-            <div key={index} className="text-center">
-              <img src={trainer.image} alt={trainer.name} className=" mx-auto mb-2  h-70 object-cover" />
-              <div>{trainer.name}</div>
-            </div>
-          ))}
-        </div>
-        <button className="mt-8 border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full">View All</button>
-      </section>
+      <Trainers />
 
 
       {/* Call to Action */}
@@ -153,7 +136,7 @@ const Main = () => {
           {/* <div className="md:w-1/2 md:pl-8"> */}
 
 
-          <Add/>
+          <Add />
 
         </div>
       </section>

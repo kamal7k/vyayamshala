@@ -14,6 +14,21 @@ export const trainerApi = createApi({
         url: '/',
         body: q.body,
         method: 'POST',
+        headers: {
+
+        },
+      }),
+      invalidatesTags: ['Trainers']
+    }),
+
+    updateTrainerById: builder.mutation({
+      query: (q) => ({
+        url: `/${q.id}`,
+        body: q.body,
+        headers: {
+
+        },
+        method: 'PATCH'
       }),
       invalidatesTags: ['Trainers']
     }),
@@ -27,13 +42,25 @@ export const trainerApi = createApi({
       providesTags: ['Trainers']
     }),
 
+    getTrainerById: builder.query({
+
+      query: (id) => ({
+        url: `/${id}`,
+        method: 'GET',
+      }),
+      providesTags: ['Trainers']
+    }),
+
     removeTrainerById: builder.mutation({
       query: (q) => ({
         url: `/${q.id}`,
         method: 'DELETE'
       }),
       invalidatesTags: ['Trainers']
-    })
+    }),
+
+
+
 
 
 
@@ -42,4 +69,4 @@ export const trainerApi = createApi({
 
 });
 
-export const { useGetAllTrainersQuery, useAddTrainerMutation, useRemoveTrainerByIdMutation } = trainerApi;
+export const { useGetAllTrainersQuery, useAddTrainerMutation, useGetTrainerByIdQuery, useRemoveTrainerByIdMutation, useUpdateTrainerByIdMutation } = trainerApi;
