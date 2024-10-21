@@ -1,11 +1,11 @@
 import express from "express";
-import { addTrainer, getAllTrainers, removeTrainer } from "../controllers/trainerController.js";
-import { validFile } from "../middlewares/fileValid.js";
+import { addTrainer, getAllTrainers, getTrainerById, removeTrainer, updateTrainer } from "../controllers/trainerController.js";
+import { updateFile, validFile } from "../middlewares/fileValid.js";
 
 const trainerRouter = express.Router();
 
 trainerRouter.route("/").get(getAllTrainers).post(validFile, addTrainer)
 
-trainerRouter.route("/:id").delete(removeTrainer)
+trainerRouter.route("/:id").get(getTrainerById).patch(updateFile, updateTrainer).delete(removeTrainer);
 
 export default trainerRouter
