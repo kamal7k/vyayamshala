@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Card,
   CardHeader,
@@ -7,65 +6,67 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-
 const facilities = [
   {
     id: 1,
     name: "Lockers and towels",
-    text: "Clean, Safe and sanitary environment to keep your stuffs."
+    text: "Clean, Safe and sanitary environment to keep your stuff.",
+    image: "https://images.unsplash.com/photo-1641236475922-4537ef0b974e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zml0bmVzcyUyMGNlbnRlcnxlbnwwfHwwfHx8MA%3D%3D"
   },
-
   {
     id: 2,
-    name: "Lockers and towels",
-    text: "Clean, Safe and sanitary environment to keep your stuffs."
+    name: "Peaceful enviroment",
+    text: "Workout in clean peaceful enviroment.",
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Zml0bmVzcyUyMGNlbnRlcnxlbnwwfHwwfHx8MA%3D%3D"
   },
-
   {
     id: 3,
-    name: "Lockers and towels",
-    text: "Clean, Safe and sanitary environment to keep your stuffs."
+    name: "Personal trainer",
+    text: "Get the best training with personalized programs.",
+    image: "https://plus.unsplash.com/premium_photo-1661284900398-60575fc310e0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzcyfHxmaXRuZXNzJTIwY2VudGVyfGVufDB8fDB8fHww"
   },
-
   {
     id: 4,
-    name: "Lockers and towels",
-    text: "Clean, Safe and sanitary environment to keep your stuffs."
+    name: "Hightech Gym",
+    text: "Build yourself with best available equipment in the market.",
+    image: "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzF8fGZpdG5lc3MlMjBjZW50ZXJ8ZW58MHx8MHx8fDA%3D"
   },
-
   {
     id: 5,
-    name: "Lockers and towels",
-    text: "Clean, Safe and sanitary environment to keep your stuffs."
+    name: "Group Classes",
+    text: "Join our fitness group classes for a fun experience.",
+    image: "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fGZpdG5lc3MlMjBjZW50ZXJ8ZW58MHx8MHx8fDA%3D"
   },
-
   {
     id: 6,
-    name: "Lockers and towels",
-    text: "Clean, Safe and sanitary environment to keep your stuffs."
+    name: "Complimentary Drinks",
+    text: "We make sure you stay hydrated and push your limit",
+    image: "https://images.unsplash.com/photo-1495638488670-437e54b3bab4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDEwfHxmaXRuZXNzJTIwY2VudGVyfGVufDB8fDB8fHww"
   }
 ]
 
 const Facilities = () => {
   return (
     <div className='my-10 p-8'>
-      {/* Use grid-cols-3 for large screens, md:grid-cols-1 for medium and smaller screens */}
+      <div className='text-center mb-6 text-3xl font-bold '>
+        <h1 >Our <span className='text-yellow-500'>facilities</span></h1>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-        {facilities.map((feature, id) => (
-          <Card key={id} className="w-full max-w-[23rem] max-h-[175px] flex-row">
+        {facilities.map((feature) => (
+          <Card key={feature.id} className="w-full max-w-[23rem] flex-row">
             <CardHeader
               shadow={false}
               floated={false}
               className="m-0 w-[150px] h-[175px] shrink-0 rounded-r-none"
             >
               <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-                alt="card-image"
+                src={feature.image}
+                alt={feature.name}
                 className="h-full w-full object-cover"
               />
             </CardHeader>
-            <CardBody className='bg-black' >
-              <Typography className="mb-2 text-gray-300 font-bold ">
+            <CardBody className='bg-black'>
+              <Typography className="mb-2 text-gray-300 font-bold">
                 {feature.name}
               </Typography>
               <Typography className=" text-gray-500">
@@ -74,8 +75,6 @@ const Facilities = () => {
             </CardBody>
           </Card>
         ))}
-
-
       </div>
     </div>
   );

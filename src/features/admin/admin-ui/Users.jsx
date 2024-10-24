@@ -25,9 +25,9 @@ const Users = () => {
         <tbody>
           {data && data.map((user) => (
             <tr key={user._id} className="border-b">
-              <td className="px-4 py-2">{user.fullname}</td>
-              <td className="px-4 py-2">{user.number}</td>
-              <td className="px-4 py-2">{new Date(user.createdAt).toLocaleString()}</td>
+              <td className="px-4 py-2 text-center">{user.fullname}</td>
+              <td className="px-4 py-2 text-center">{user.number}</td>
+              <td className="px-4 py-2 text-center">{new Date(user.createdAt).toLocaleString()}</td>
             </tr>
           ))}
         </tbody>

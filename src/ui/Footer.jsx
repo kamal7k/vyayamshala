@@ -5,12 +5,8 @@ const Footer = () => {
     <div>
       <footer className="p-8 bg-gray-900">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
           <div>
-            <h3 className="font-bold mb-4">Vyayamshala</h3>
-            <p>Join The World Of Fitness</p>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>

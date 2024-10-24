@@ -9,7 +9,8 @@ const Header = ({ setOpen }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    // Perform logout logic
+    dispatch(removeUser());
+    navigate('/admin');
   };
 
   return (

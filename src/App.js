@@ -2,9 +2,9 @@ import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './ui/RootLayout';
 import Main from './features/dashboard/Main';
-import Login from './features/auth/Login';
-import Register from './features/auth/Register';
-import ProfileMain from './features/user/ProfileMain';
+// import Login from './features/auth/Login';
+// import Register from './features/auth/Register';
+// import ProfileMain from './features/user/ProfileMain';
 import AdminRoute from './features/admin/AdminRoute';
 import Dashboard from './features/admin/Dashboard';
 import Users from './features/admin/admin-ui/Users';
@@ -25,6 +25,7 @@ const App = () => {
         {
           index: true,
           element: <Main />
+          
         },
 
         //admin Route
@@ -61,21 +62,6 @@ const App = () => {
 
 
 
-
-        // {
-        //   path: 'login',
-        //   element: <Login />
-        // },
-        // {
-        //   path: 'register',
-        //   element: <Register />
-        // },
-
-
-        // {
-        //   path: 'user-profile',
-        //   element: <ProfileMain />
-        // },
 
       ]
     }

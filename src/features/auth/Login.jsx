@@ -59,6 +59,7 @@ const Login = () => {
               type="text" // Changed to text
               size="lg"
               name="number" // Update to number
+              pattern='[1-9]{1}[0-9]{9}'
               onChange={handleChange}
               value={values.number} // Update to reflect number
               placeholder="Enter your contact number"

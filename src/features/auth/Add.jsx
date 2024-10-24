@@ -34,8 +34,8 @@ const Add = () => {
 
 
   return (
-    <div className="p-4 w-80 max-w-screen-lg sm:w-96">
-      <div color="white" >
+    <div className="p-8 w-full  bg-gray-200">
+      <div className='text-black'>
         <h3 className="text-xl font-bold mb-4">Become a part of our family</h3>
         <p className="mb-4">Leave your details and we will get back to you!</p>
 
@@ -48,6 +48,7 @@ const Add = () => {
               value={values.fullname}
               label="Full Name"
               placeholder="Enter your full name"
+              className='w-64'
             />
             {errors.fullname && touched.fullname && <h1 className='text-red-600'>{errors.fullname}</h1>}
 
@@ -59,11 +60,12 @@ const Add = () => {
               value={values.number} // Update to reflect number
               placeholder="Enter your contact number"
               label="Contact Number"
+              className='w-64'
             />
             {errors.number && touched.number && <h1 className='text-red-600'>{errors.number}</h1>}
           </div>
 
-          <Button loading={isLoading} type="submit" className="mt-4 bg-yellow-900" fullWidth>
+          <Button loading={isLoading} type="submit" className="mt-4 bg-yellow-700 w-40" fullWidth>
             Join
           </Button>
         </form>
