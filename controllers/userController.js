@@ -22,7 +22,7 @@ export const addUser = async (req, res) => {
     });
 
     return res.status(201).json({
-      message: "Now you are a member of this gym.",
+      message: "Now you are the member of this gym.",
       user: newUser,
     });
 
