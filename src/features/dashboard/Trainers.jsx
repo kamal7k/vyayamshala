@@ -9,22 +9,25 @@ import {
   Typography,
 
 } from "@material-tailwind/react";
+import { useNavigate } from 'react-router';
 
 const Trainers = () => {
 
+  const nav = useNavigate();
+
   const { data } = useGetAllTrainersQuery();
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <div className="p-8">
       <div className='text-center mb-12'>
-      <h2 className="text-3xl font-bold mb-4">Meet our <span className='text-yellow-500'>Trainers</span></h2>
+        <h2 className="text-3xl font-bold mb-4">Meet our <span className='text-yellow-500'>Trainers</span></h2>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
         {data && data.map((trainer, index) => {
           return (
-            <Card className="w-full max-w-[60rem] flex-col bg-transparent items-center cursor-pointer "
+            <Card key={index} className="w-full max-w-[60rem] flex-col bg-transparent items-center cursor-pointer "
               shadow={false}
             >
               <CardHeader
@@ -39,7 +42,7 @@ const Trainers = () => {
                 />
               </CardHeader>
               <CardBody>
-                <Typography variant="h7" color="white" className="mb-2 uppercase">
+                <Typography variant="lead" color="white" className="mb-2">
                   {trainer.name}
                 </Typography>
               </CardBody>
@@ -49,7 +52,7 @@ const Trainers = () => {
 
         })}
       </div>
-      <button className="mt-8 border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full">View All</button>
+      <button onClick={()=>nav('/details')} className="mt-8 border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full">View All</button>
     </div>
   )
 }

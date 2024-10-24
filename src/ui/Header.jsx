@@ -17,10 +17,10 @@ const Header = () => {
         <div className="hidden md:flex space-x-4">
           <Link></Link>
           <a href="#" className="text-yellow-400">Home</a>
-          <a href="#">About</a>
-          <a href="#">Reviews</a>
-          <a href="#">Services</a>
-          <a href="#">Contact</a>
+          <a href="#about">About</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
         </div>
 
         {/* Menu Button for Mobile */}

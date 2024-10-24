@@ -3,7 +3,7 @@ import React from 'react'
 import { ImStarFull } from "react-icons/im";
 const Testimonials = () => {
   return (
-    <Carousel>
+    <Carousel id='reviews'>
       <div className="p-8">
         <h2 className="text-3xl font-bold mb-8 text-center">
           Stories of our <span className="text-yellow-400">Vyayamshala</span> Family

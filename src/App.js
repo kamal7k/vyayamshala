@@ -11,6 +11,7 @@ import Users from './features/admin/admin-ui/Users';
 import Trainers from './features/admin/admin-ui/Trainers';
 import AddTrainer from './features/admin/admin-ui/AddTrainer';
 import TrainerEdit from './features/admin/editform/TrainerEdit';
+import Detail from './ui/Detail';
 
 
 const App = () => {
@@ -24,8 +25,11 @@ const App = () => {
       children: [
         {
           index: true,
-          element: <Main />
-          
+          element: <Main />,         
+        },
+        {
+          path: 'details',
+          element: <Detail/>
         },
 
         //admin Route

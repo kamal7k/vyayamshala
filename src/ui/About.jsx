@@ -3,7 +3,7 @@ import { FaRegPlayCircle } from "react-icons/fa";
 
 const About = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center p-8">
+    <div id='about' className="flex flex-col md:flex-row justify-between items-center p-8">
       <div className="max-w-md mb-8 md:mb-0 text-justify">
         {/* Heading with adjusted margin */}
         <h1 className="text-4xl md:text-5xl font-bold mb-6 md:mb-8">
