@@ -52,7 +52,7 @@ const Trainers = () => {
 
         })}
       </div>
-      <button onClick={()=>nav('/details')} className="mt-8 border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full">View All</button>
+      <button onClick={() => nav('/details')} className="mt-8 border border-yellow-400 text-yellow-400  px-6 py-2 rounded-full hover:bg-gray-900">View All</button>
     </div>
   )
 }

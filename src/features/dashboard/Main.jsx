@@ -10,7 +10,7 @@ import Join from '../../ui/Join';
 const Main = () => {
 
   return (
-    <div className="bg-black text-white min-h-screen p-7">
+    <div className="bg-black text-white min-h-screen p-10">
       <Header />
       <About/>
       <Services/>

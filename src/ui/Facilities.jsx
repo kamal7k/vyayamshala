@@ -47,17 +47,19 @@ const facilities = [
 
 const Facilities = () => {
   return (
-    <div className='my-10 p-8'>
-      <div className='text-center mb-6 text-3xl font-bold '>
-        <h1 >Our <span className='text-yellow-500'>facilities</span></h1>
+    <div className='my-8 md:my-10 p-4 md:p-8'>
+      <div className='text-center mb-8'>
+        <h1 className='text-2xl md:text-3xl font-bold'>
+          Our <span className='text-yellow-500'>facilities</span>
+        </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
         {facilities.map((feature) => (
-          <Card key={feature.id} className="w-full max-w-[23rem] flex-row">
+          <Card key={feature.id} className="w-full flex flex-col sm:flex-row rounded-none">
             <CardHeader
               shadow={false}
               floated={false}
-              className="m-0 w-[150px] h-[175px] shrink-0 rounded-r-none"
+              className="relative m-0 rounded-none w-full sm:w-[150px] h-[200px] sm:h-[175px] overflow-hidden shrink-0"
             >
               <img
                 src={feature.image}
@@ -65,11 +67,11 @@ const Facilities = () => {
                 className="h-full w-full object-cover"
               />
             </CardHeader>
-            <CardBody className='bg-black'>
+            <CardBody className='bg-black flex-1'>
               <Typography className="mb-2 text-gray-300 font-bold">
                 {feature.name}
               </Typography>
-              <Typography className=" text-gray-500">
+              <Typography className="text-gray-500">
                 {feature.text}
               </Typography>
             </CardBody>
