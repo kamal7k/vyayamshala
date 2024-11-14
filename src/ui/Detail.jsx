@@ -21,7 +21,8 @@ const Detail = () => {
               className="h-64 w-full object-contain mb-4 rounded"
             />
             <h3 className="text-xl font-bold mb-2 text-center">{trainer.name}</h3>
-            <p className="text-gray-900 mb-1 text-center">Email: {trainer.email}</p>
+            <h4 className="text-gray-900 mb-1 text-center">Email: {trainer.email}</h4>
+            <p className="text-gray-700 mb-1 text-center">{trainer.description}</p>
           </div>
         ))}
       </div>

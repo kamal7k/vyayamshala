@@ -7,20 +7,18 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 
 const Add = () => {
-
   const nav = useNavigate();
   const dispatch = useDispatch();
-
   const [addUsers, { isLoading }] = useAddUserMutation();
+  
   const { values, errors, handleSubmit, handleChange, touched } = useFormik({
     initialValues: {
       fullname: '',
-      number: '', // Update to number
+      number: '',
     },
     onSubmit: async (val) => {
       try {
         const response = await addUsers(val).unwrap();
-
         toast.success('Congratulations! Your membership form has been submitted. ');
         nav(-1);
       } catch (err) {
@@ -29,49 +27,59 @@ const Add = () => {
         toast.error(errorMessage);
       }
     },
-
   });
 
-
   return (
-    <div className="p-8 w-full  bg-gray-200">
+    <div className="h-full flex flex-col justify-center p-6 md:p-8 bg-gray-200">
       <div className='text-black'>
-        <h3 className="text-xl font-bold mb-4">Become a part of our family</h3>
-        <p className="mb-4">Leave your details and we will get back to you!</p>
+        <h3 className="text-2xl font-bold mb-3">Become a part of our family</h3>
+        <p className="mb-6 text-gray-700">Leave your details and we will get back to you!</p>
+        
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-4">
+            <div>
+              <Input
+                name="fullname"
+                onChange={handleChange}
+                size="lg"
+                value={values.fullname}
+                label="Full Name"
+                placeholder="Enter your full name"
+                className='!w-full'
+              />
+              {errors.fullname && touched.fullname && 
+                <p className='text-red-600 text-sm mt-1'>{errors.fullname}</p>
+              }
+            </div>
 
-        <form className="mt-5 mb-2" onSubmit={handleSubmit}>
-          <div className="mb-1 flex flex-col gap-6">
-            <Input
-              name="fullname"
-              onChange={handleChange}
-              size="lg"
-              value={values.fullname}
-              label="Full Name"
-              placeholder="Enter your full name"
-              className='w-64'
-            />
-            {errors.fullname && touched.fullname && <h1 className='text-red-600'>{errors.fullname}</h1>}
-
-            <Input
-              type="text" // Changed to text
-              size="lg"
-              name="number" // Update to number
-              onChange={handleChange}
-              value={values.number} // Update to reflect number
-              placeholder="Enter your contact number"
-              label="Contact Number"
-              className='w-64'
-            />
-            {errors.number && touched.number && <h1 className='text-red-600'>{errors.number}</h1>}
+            <div>
+              <Input
+                type="number"
+                size="lg"
+                name="number"
+                onChange={handleChange}
+                value={values.number}
+                placeholder="Enter your contact number"
+                label="Contact Number"
+                className='!w-full'
+              />
+              {errors.number && touched.number && 
+                <p className='text-red-600 text-sm mt-1'>{errors.number}</p>
+              }
+            </div>
           </div>
 
-          <Button loading={isLoading} type="submit" className="mt-4 bg-yellow-700 w-40" fullWidth>
-            Join
+          <Button 
+            loading={isLoading} 
+            type="submit" 
+            className="mt-6 bg-yellow-700  hover:bg-yellow-800 transition-colors w-40"
+          >
+            Join Now
           </Button>
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default Add
+export default Add;

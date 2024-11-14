@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Dialog } from '@headlessui/react';
 import { FaRegPlayCircle } from "react-icons/fa";
 
 const About = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   const scrollToJoin = () => {
     const joinSection = document.getElementById('join');
     if (joinSection) {
       joinSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
     <div id='about' className="flex flex-col lg:flex-row justify-between items-center p-4 md:p-8 gap-8">
       <div className="w-full lg:w-1/2 max-w-2xl">
@@ -20,13 +24,16 @@ const About = () => {
         </p>
 
         <div className='flex gap-12 mb-8 md:mb-12'>
-        <button 
-          onClick={scrollToJoin}
-          className="bg-yellow-400 text-black px-4 md:px-6 py-2 rounded-full hover:bg-yellow-500 transition-colors"
-        >
-          Join Now
-        </button>
-          <button className="flex items-center hover:text-yellow-400 transition-colors">
+          <button
+            onClick={scrollToJoin}
+            className="bg-yellow-400 text-black px-4 md:px-6 py-2 rounded-full hover:bg-yellow-500 transition-colors"
+          >
+            Join Now
+          </button>
+          <button
+            onClick={() => setIsVideoOpen(true)} // Opens the video modal
+            className="flex items-center hover:text-yellow-400 transition-colors"
+          >
             <FaRegPlayCircle className="mr-2 h-6 w-6 md:h-8 md:w-8" /> Watch video
           </button>
         </div>
@@ -55,6 +62,37 @@ const About = () => {
           className="rounded-lg w-full md:w-auto md:h-auto object-cover"
         />
       </div>
+
+      {/* Video Modal */}
+      <Dialog
+        open={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50"
+      >
+        <Dialog.Panel className="w-full max-w-2xl bg-white rounded-lg overflow-hidden">
+          <div className="relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsVideoOpen(false)}
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-xl"
+            >
+              &times;
+            </button>
+
+            {/* Responsive Video */}
+            <div className="w-full aspect-w-16 aspect-h-9">
+              <iframe
+                src="https://youtube.com/embed/b3MVyzmv0qQ?si=Oyv7YeUUsC73PJcr" 
+                title="YouTube video"
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
     </div>
   );
 };

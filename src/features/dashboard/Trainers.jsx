@@ -61,6 +61,3 @@ export default Trainers
 
 
 
-
-
-/// <img src={trainer.image} alt={trainer.name} className=" mx-auto mb-2  h-70 object-cover" />

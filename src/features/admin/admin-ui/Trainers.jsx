@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 const Trainers = () => {
 
-  const TABLE_HEAD = ["Image", "Name", "Email", "Created At", "", ""];
+  const TABLE_HEAD = ["Image", "Name", "Email", "Description", "", ""];
 
   const { isLoading, data } = useGetAllTrainersQuery();
 
@@ -57,7 +57,7 @@ const Trainers = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.map(({ name, image, email, createdAt, _id }, index) => {
+            {data?.map(({ name, image, email, description, _id }, index) => {
               const isLast = index === data.length - 1;
               const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
@@ -81,7 +81,7 @@ const Trainers = () => {
 
                   <td className={classes}>
                     <Typography variant="small" color="blue-gray" className="font-normal">
-                      {createdAt}
+                      {description}
                     </Typography>
                   </td>
                   <td className={`w-24 ${classes}`}> {/* Set fixed width for Edit column */}

@@ -38,7 +38,8 @@ const TrainerEditForm = ({ trainer }) => {
         name: trainer.name,
         email: trainer.email,
         image: null,
-        imageReview: trainer.image
+        imageReview: trainer.image,
+        description: trainer.description
 
       },
 
@@ -47,6 +48,7 @@ const TrainerEditForm = ({ trainer }) => {
         const formData = new FormData();
         formData.append('name', val.name);
         formData.append('email', val.email);
+        formData.append('description', val.description)
 
 
 
@@ -135,6 +137,15 @@ const TrainerEditForm = ({ trainer }) => {
             {errors.image && touched.image && <h1 className='text-pink-700'>{errors.image}</h1>}
             {values.imageReview && <img src={values.image === null ? `${imageUrl}${values.imageReview}` : values.imageReview} alt="" />}
           </div>
+
+          <textarea
+            className="border border-gray-300 p-3 rounded-lg h-32 resize-none"
+            placeholder="Description"
+            name="description"
+            value={values.description}
+            onChange={handleChange}
+          />
+          {errors.description && touched.description && <h1 className='text-pink-700'>{errors.description}</h1>}
 
 
         </div>
