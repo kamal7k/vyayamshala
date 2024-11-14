@@ -3,12 +3,16 @@ import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import trainerRoutes from "./routes/trainerRoutes.js";
-
 import cors from 'cors'
 import fileUpload from "express-fileupload";
+import dotenv from 'dotenv';
+
 const app = express();
 app.use(cors());
-const PORT = process.env.PORT || 3000;  // Use the environment variable for PORT
+
+//PORT
+dotenv.config();
+const port = process.env.PORT||5000;
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
@@ -16,7 +20,7 @@ app.use(express.json());
 //File upload 
 
 app.use(fileUpload({
-  limits: {fileSize: 2 * 1024 * 1024},
+  limits: { fileSize: 2 * 1024 * 1024 },
   abortOnLimit: true,
 }))
 
@@ -44,7 +48,7 @@ app.get('/', (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 

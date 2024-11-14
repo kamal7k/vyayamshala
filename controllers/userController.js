@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { User } from "../models/User.js";  // Ensure correct path
 
 export const addUser = async (req, res) => {
@@ -39,5 +40,39 @@ export const getAllUsers = async (req, res) => {
     return res.status(200).json(users)
   } catch (err) {
     return res.status(400).json(`message: ${err}`)
+  }
+}
+
+export const getUserById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const user = await User.findById(id);
+    return res.status(200).json(user)
+
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` })
+  }
+
+}
+
+export const removeUser = async (req, res) => {
+  const { id } = req.params
+  try {
+
+    if (mongoose.isValidObjectId(id)) {
+
+      const isExist = await User.findById(id);
+      // console.log(isExist)
+      if (isExist) {
+        await User.findByIdAndDelete(id);
+
+      }
+      return res.status(200).json({ message: 'Sucessfully Deleted' })
+
+    }
+
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` })
   }
 }

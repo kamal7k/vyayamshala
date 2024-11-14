@@ -26,12 +26,13 @@ export const getTrainerById = async (req, res) => {
 }
 
 export const addTrainer = async (req, res) => {
-  const { name, email } = req.body;
+  const { name, email, description } = req.body;
 
   try {
     await Trainer.create({
       name,
       email,
+      description,
       image: req.imagePath,
 
     })
@@ -82,6 +83,7 @@ export const updateTrainer = async (req, res) => {
         const updateObj = {
           name: req.body.name || isExist.name,
           email: req.body.email || isExist.email,
+          description: req.body.description || isExist.description
         };
         if (req.imagePath) {
           await isExist.updateOne({
