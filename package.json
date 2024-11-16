@@ -1,15 +1,16 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "description": "Backend for the application",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "build": "echo 'No build step required for this backend project.'"
   },
   "keywords": [],
-  "author": "",
+  "author": "Your Name",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -18,7 +19,9 @@
     "express-joi-validation": "^5.0.1",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.7.2",
+    "mongoose": "^8.7.2"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.7"
   }
 }
